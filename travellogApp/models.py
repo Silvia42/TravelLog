@@ -12,6 +12,7 @@ class Place(models.Model):
     #placeImageUrl = models.CharField(max_length=30) 
 
 class Trip(models.Model):
+    placeName= models.CharField(max_length=50)  # VDFix
     tripDate = models.DateField(null=True)
     user     = models.ForeignKey(User, on_delete=models.CASCADE, related_name='users')
     place    = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='places')

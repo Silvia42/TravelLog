@@ -42,13 +42,15 @@ export default class PlaceForm extends React.Component {
     state = {
         place: 0,
         //date: Date.now()
+        placeName:"", // VDFix
         tripDate:new Date().toISOString().slice(0,10)
       }
 
     handleInput = (evnt) => {
         let newVal = {...this.state};
         newVal[evnt.target.name] = evnt.target.value;
-        this.setState(newVal)
+        newVal.placeName = this.props.worldCountries[parseInt(newVal.place)-1].placeName // VDFix
+        this.setState(newVal);
     }
 
     saveTripToServer = (newTrip) => 

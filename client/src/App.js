@@ -30,7 +30,7 @@ class App extends React.Component {
 
   state = {
       currentUserId: 4 // 0=Nobody is Signed In
-    , currentUserName:'Foo Bar'
+    , currentUserName:'SamuelAdams'
     , currentUserEmail:''
     , places: [
       { id:1 
@@ -42,7 +42,8 @@ class App extends React.Component {
       {
       tripDate: '2019',
       user: 0,
-      place: 0
+      place: 0,
+      placeName: ''
       }
     ],
     var42:0, // used for solving callbackFromPlace
@@ -64,7 +65,8 @@ class App extends React.Component {
     // console.log('tttt',t)
     t.push({"user":this.state.currentUserId, 
             "tripDate":data.tripDate,
-            "place":parseInt(data.place)
+            "place":parseInt(data.place),
+            "placeName":data.placeName // VDFix
           })
     // t.push(data)
     this.setState({"trips":t})

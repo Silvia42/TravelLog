@@ -14,6 +14,7 @@ class PlaceSerializer(serializers.ModelSerializer):
 class TripSerializer(serializers.ModelSerializer):  
     class Meta:     
         model = Trip   
-        fields = ['id', 'tripDate', 'user', 'place']
+        fields = ['id', 'placeName', 'tripDate', 'user', 'place']
+        # fields = ['id', 'tripDate', 'user', 'place']  # VDFix
 
 

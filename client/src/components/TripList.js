@@ -30,6 +30,7 @@ componentDidMount() {
 // showTrip = (x) => (console.log(typeof x.tripDate)) // string
 // showTrip = (x) => (console.log(x.tripDate.slice(0,4)))
 showTrip = (x) => (<h5>{x.place} visited in {x.tripDate.slice(0,4)} </h5>)
+showTripVDFix = (x) => (<h5>{x.placeName} visited in {x.tripDate.slice(0,4)} </h5>)
 
 showTripWithPlaceName = (x) => {
     console.log(this.state.wcObject ? this.state.wcObject : null)
@@ -46,7 +47,8 @@ render = () => (
         <h3>You have visited this countries:  </h3>
 
         {/* {console.log(this.state.trips)} */}
-        {this.props.trips.map(this.showTrip)}
+        {/* {this.props.trips.map(this.showTrip)} */} 
+        {this.props.trips.map(this.showTripVDFix)}      
         {/* {(this.state.loading) ? null : this.props.trips.map(this.showTripWithPlaceName)} */}
 
         {this.state.wcObject ? this.props.trips.map(this.showTripWithPlaceName) : null}
