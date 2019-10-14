@@ -43,13 +43,16 @@ export default class PlaceForm extends React.Component {
         place: 0,
         //date: Date.now()
         placeName:"", // VDFix
-        tripDate:new Date().toISOString().slice(0,10)
+        tripDate: new Date().toISOString().slice(0,10)
       }
 
     handleInput = (evnt) => {
         let newVal = {...this.state};
         newVal[evnt.target.name] = evnt.target.value;
-        newVal.placeName = this.props.worldCountries[parseInt(newVal.place)-1].placeName // VDFix
+        this.setState(newVal);
+        if (this.state.place)
+        {newVal.placeName = this.props.worldCountries[parseInt(newVal.place)-1].placeName // VDFix
+        }
         this.setState(newVal);
     }
 
@@ -86,7 +89,8 @@ export default class PlaceForm extends React.Component {
         }else{
         alert("Country must be selected!!!") 
         } 
-        this.setState({ place: 0, date:new Date().toISOString().slice(0,10)})
+        // this.setState({ place: 0, date:new Date().toISOString().slice(0,10)})
+        this.setState({ place: 0, date:''})
         // .then(this.props.callbackFromPlace)
         // .then(this.props.callback42({var42: Math.random(42)}))
         // this.props.action('Set Parent state set from child: ' + Math.floor(Math.random() * 999))
@@ -107,9 +111,10 @@ export default class PlaceForm extends React.Component {
             </select>
                 {/* {console.log('worldCountries',this.props.worldCountries)} */}
                 {/* <p>{this.props.worldCountries.map(showItem)}</p>  */}  
-            <input type="date"  name="tripDate"  value={this.state.date}   onChange={this.handleInput}/>
-            <input type="submit"                    value="Add this trip" />
-            {/* <h4>Current user is: {this.props.currentUserId}</h4> */}
+            {/* <input type="date"  name="tripDate"  value={this.state.date}   onChange={this.handleInput}/> */}
+            <input type="date"  name="tripDate"  onChange={this.handleInput}/>
+            <input type="submit"                 value="Add this trip" />
+            <h4>Current user is: {this.props.currentUserId}</h4>
             <h4>Current user is: {this.props.currentUserName}</h4>
             </form>
         </div>

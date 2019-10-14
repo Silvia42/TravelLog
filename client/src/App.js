@@ -29,8 +29,8 @@ class App extends React.Component {
 
 
   state = {
-      currentUserId: 4 // 0=Nobody is Signed In
-    , currentUserName:'SamuelAdams'
+      currentUserId: 1 // 0=Nobody is Signed In
+    , currentUserName: 'PolarBear' // 'HaskellMan'   // 'SamuelAdams'
     , currentUserEmail:''
     , places: [
       { id:1 
